@@ -12,7 +12,11 @@ extension AddMaps<A, B> on Map<A, B>{
 extension SubtractMap<C, D> on Map<C, D> {
   Map<C, D> operator -(Map<C, D> other) {
     if(other.isNotEmpty){
+      //this return statement and the return statement commented out below perform the same operation
       return {...this}..removeWhere((key, value) => other.containsKey(key) && other[key] == value);
+      // return Map.fromEntries(entries.where((entry) => !other.entries.any((entry1) 
+      //   => entry.key == entry1.key && entry.value == entry1.value))
+      // );
     } else {
       print('I fall here');
       return this;
