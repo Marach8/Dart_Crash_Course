@@ -1,6 +1,6 @@
 void main(List<String> arguments) {
   final amarachi = Amarachi();
-  amarachi.printSurname(surname: 'Ajah Emmanuel Nnanna');
+amarachi.printSurname(surname: 'Ajah Emmanuel Nnanna');
 }
 
 mixin Marach{
