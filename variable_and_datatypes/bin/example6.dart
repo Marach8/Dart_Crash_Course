@@ -1,16 +1,15 @@
 void main(List<String> arguments) {
-  final map = map1 - map2;
+  final map = map1 *3;
   print(map);
 }
 
-//This extension overloads the + on Maps to add them together
-extension AddMaps<A, B> on Map<A, B>{
-  Map<A, B> operator +(Map<A, B> other) => {...this, ...other};
-}
 
-//This extension overloads the - on Maps to subtract one from another
-extension SubtractMap<C, D> on Map<C, D> {
-  Map<C, D> operator -(Map<C, D> other) {
+extension OperationOnMaps<A, B> on Map<A, B>{
+  //This extension overloads the + on Maps to add them together
+  Map<A, B> operator +(Map<A, B> other) => {...this, ...other};
+
+  //This extension overloads the - on Maps to subtract one from another
+  Map<A, B> operator -(Map<A, B> other) {
     if(other.isNotEmpty){
       //this return statement and the return statement commented out below perform the same operation
       return {...this}..removeWhere((key, value) => other.containsKey(key) && other[key] == value);
@@ -22,7 +21,13 @@ extension SubtractMap<C, D> on Map<C, D> {
       return this;
     }
   }
+
+
+  Iterable<Map<A, B>>operator *(int index) sync*{
+    for (int i = 0; i < index; i++){yield this;}
+  }
 }
+
 
 Map map1 = {
   'name': 'Emmanuel',
